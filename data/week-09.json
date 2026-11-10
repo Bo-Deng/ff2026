@@ -1,0 +1,78 @@
+{
+  "week": 9,
+  "season": 2026,
+  "matchups": [
+    {
+      "matchup_id": 1,
+      "teams": [
+        {
+          "roster_id": 6,
+          "name": "jasmiine",
+          "points": 207.13
+        },
+        {
+          "roster_id": 7,
+          "name": "alexisssssssssssssss",
+          "points": 168.26
+        }
+      ],
+      "winner": "jasmiine",
+      "winner_id": 6,
+      "margin": 38.87
+    },
+    {
+      "matchup_id": 2,
+      "teams": [
+        {
+          "roster_id": 1,
+          "name": "btbchip",
+          "points": 181.79
+        },
+        {
+          "roster_id": 2,
+          "name": "RoyalCobalt",
+          "points": 131.03
+        }
+      ],
+      "winner": "btbchip",
+      "winner_id": 1,
+      "margin": 50.76
+    },
+    {
+      "matchup_id": 3,
+      "teams": [
+        {
+          "roster_id": 4,
+          "name": "riripanini",
+          "points": 137.68
+        },
+        {
+          "roster_id": 8,
+          "name": "JuliusKoko",
+          "points": 120.11
+        }
+      ],
+      "winner": "riripanini",
+      "winner_id": 4,
+      "margin": 17.57
+    },
+    {
+      "matchup_id": 4,
+      "teams": [
+        {
+          "roster_id": 3,
+          "name": "andwxu",
+          "points": 127.25
+        },
+        {
+          "roster_id": 5,
+          "name": "paulapun",
+          "points": 164.61
+        }
+      ],
+      "winner": "paulapun",
+      "winner_id": 5,
+      "margin": 37.36
+    }
+  ]
+}
