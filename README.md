@@ -43,3 +43,7 @@ The homepage shows standings after Week 9, optimized Week 10 lineups and win odd
 Week 10 excludes current Out/IR players and reserve slots. Future weeks permit projected recovery and reserve activation. No actual waiver transactions, competitive claims, new injuries or trades are modeled. Unavoidable empty slots use generic replacement forecasts: the median of the top five unrostered projected players at the position for each week. FLEX uses the best RB/WR/TE baseline. These fill only vacancies and include position-level uncertainty. The six-team fixed bracket starts Week 15, with two byes and the championship in Week 17.
 
 Updating the site does not automatically refresh source projections. Refresh frozen inputs before rerunning the season model. Scores are experimental model draws, not Sleeper's official odds.
+
+## Game of the Week
+
+`data/gotw.json` holds the commissioner’s official Weeks 2–13 schedule and completed scores. The dashboard highlights the latest result, identifies the losing team as the weekly punishment recipient, lists future fixtures and marks the upcoming GOTW matchup card. Earlier results are available in the collapsed history. Update completed scores when advancing the weekly snapshot, then rebuild. `Alexis` is the display alias for `alexisssssssssssssss`.

@@ -1,0 +1,156 @@
+{
+  "rule": "The loser of the Game of the Week does the weekly punishment.",
+  "aliases": {
+    "alexisssssssssssssss": "Alexis"
+  },
+  "schedule": [
+    {
+      "week": 2,
+      "teams": [
+        {
+          "name": "btbchip",
+          "points": 157.63
+        },
+        {
+          "name": "RoyalCobalt",
+          "points": 134.23
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "teams": [
+        {
+          "name": "andwxu",
+          "points": 142.24
+        },
+        {
+          "name": "RoyalCobalt",
+          "points": 150.23
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "teams": [
+        {
+          "name": "Alexis",
+          "points": 198.83
+        },
+        {
+          "name": "JuliusKoko",
+          "points": 142.42
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "teams": [
+        {
+          "name": "paulapun",
+          "points": 131.06
+        },
+        {
+          "name": "JuliusKoko",
+          "points": 188.15
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "teams": [
+        {
+          "name": "andwxu",
+          "points": 133.27
+        },
+        {
+          "name": "riripanini",
+          "points": 141.44
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "teams": [
+        {
+          "name": "btbchip",
+          "points": 155.98
+        },
+        {
+          "name": "JuliusKoko",
+          "points": 123.85
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "teams": [
+        {
+          "name": "riripanini",
+          "points": 152.1
+        },
+        {
+          "name": "jasmiine",
+          "points": 174.6
+        }
+      ]
+    },
+    {
+      "week": 9,
+      "teams": [
+        {
+          "name": "jasmiine",
+          "points": 207.13
+        },
+        {
+          "name": "Alexis",
+          "points": 168.26
+        }
+      ]
+    },
+    {
+      "week": 10,
+      "teams": [
+        {
+          "name": "riripanini"
+        },
+        {
+          "name": "paulapun"
+        }
+      ]
+    },
+    {
+      "week": 11,
+      "teams": [
+        {
+          "name": "btbchip"
+        },
+        {
+          "name": "andwxu"
+        }
+      ]
+    },
+    {
+      "week": 12,
+      "teams": [
+        {
+          "name": "RoyalCobalt"
+        },
+        {
+          "name": "jasmiine"
+        }
+      ]
+    },
+    {
+      "week": 13,
+      "teams": [
+        {
+          "name": "paulapun"
+        },
+        {
+          "name": "Alexis"
+        }
+      ]
+    }
+  ]
+}
