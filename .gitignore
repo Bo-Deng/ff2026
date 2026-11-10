@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 .openai/
 .DS_Store
+
+__pycache__/
+*.pyc
+data/forecast-input.json
