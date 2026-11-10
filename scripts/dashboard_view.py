@@ -18,7 +18,7 @@ def render(d, gotw):
     for m in d['matchups']:
         a,b = m['teams']
         featured = next((g for g in gotw['schedule'] if g['week']==d['next_week'] and {t['name'] for t in g['teams']}=={a['name'],b['name']}), None)
-        badge = '<p class="gotw-badge">GAME OF THE WEEK · LOSER TAKES THE PUNISHMENT</p>' if featured else ''
+        badge = '<p class="gotw-badge">GAME OF THE WEEK</p>' if featured else ''
         featured_class = ' featured-gotw' if featured else ''
         team_rows = ''.join(f'<div class="match-team"><strong>{E(t["name"])}</strong><span>{t["points"]:.1f}<small>projected pts</small></span><b>{pct(t["probability"])}<small>win chance</small></b></div>' for t in (a,b))
         selected = ''
