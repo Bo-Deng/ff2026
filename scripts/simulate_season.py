@@ -21,6 +21,11 @@ assert D['settings']['playoff_round_type'] == 0
 
 def lineup(team, week):
     slots = D['slots']
+    replacements = D['replacements'][str(week)]
+    def replacement(slot):
+        eligible = ('RB','WR','TE') if slot == 'FLEX' else (slot,)
+        pos = max(eligible, key=lambda p: replacements[p]['points'])
+        return pos, replacements[pos]['points']
     # A future recovery/activation is allowed when a weekly forecast exists.
     # Week 10 uses today's Out/IR designations and current reserve restrictions.
     candidates = []
@@ -28,7 +33,7 @@ def lineup(team, week):
         p = D['players'][sid]
         if week == 10 and (sid in team['reserve'] or p['injury'] in ('Out', 'IR', 'PUP', 'Suspended')):
             continue
-        if sid not in D['projections'][str(week)]:
+        if D['projections'][str(week)].get(sid, 0) <= 0:
             continue
         candidates.append(sid)
     candidates += [None] * len(slots)
@@ -37,7 +42,9 @@ def lineup(team, week):
         allowed = {'RB', 'WR', 'TE'} if slot == 'FLEX' else {slot}
         for j, sid in enumerate(candidates):
             if sid is None:
-                costs[i,j] = 0
+                # First maximize filled roster slots, then total projection
+                # including replacement points for unavoidable vacancies.
+                costs[i,j] = 10_000 - replacement(slot)[1]
             elif allowed.intersection(D['players'][sid]['positions']):
                 costs[i,j] = -D['projections'][str(week)][sid]
     rows, cols = linear_sum_assignment(costs)
@@ -45,10 +52,15 @@ def lineup(team, week):
     for i,j in zip(rows,cols):
         sid = candidates[j]
         p = D['players'].get(sid, {})
-        mean = D['projections'][str(week)].get(sid, 0)
-        position = next((x for x in p.get('positions',[]) if x in D['uncertainty']), None)
-        variance = D['uncertainty'][position]['scaled_rmse']**2 * max(mean,3) if sid else 0
-        chosen.append({'slot':slots[i], 'id':sid, 'name':p.get('name','Open slot'), 'points':mean, 'variance':variance})
+        if sid:
+            mean = D['projections'][str(week)][sid]
+            position = next(x for x in p['positions'] if x in D['uncertainty'])
+            name = p['name']
+        else:
+            position, mean = replacement(slots[i])
+            name = f'Replacement {position}'
+        variance = D['uncertainty'][position]['scaled_rmse']**2 * max(mean,3)
+        chosen.append({'slot':slots[i], 'id':sid, 'name':name, 'points':mean, 'variance':variance, 'replacement':sid is None})
     assert len({p['id'] for p in chosen if p['id']}) == sum(p['id'] is not None for p in chosen)
     return {'points':sum(p['points'] for p in chosen), 'variance':sum(p['variance'] for p in chosen), 'players':chosen}
 
@@ -97,10 +109,10 @@ for a,b in D['schedule']['10']:
     i,j=index[a],index[b]
     p=float(ndtr((means[0,i]-means[0,j])/math.sqrt(sds[0,i]**2+sds[0,j]**2)))
     matchups.append({'teams':[{'id':a,'name':TEAMS[i]['name'],'probability':p,**lineups[10][i]}, {'id':b,'name':TEAMS[j]['name'],'probability':1-p,**lineups[10][j]}]})
-public_matchups = [{'teams':[{'name':t['name'],'points':t['points'],'probability':t['probability'],'players':[{'slot':p['slot'],'name':p['name'],'points':p['points']} for p in t['players']]} for t in m['teams']]} for m in matchups]
+public_matchups = [{'teams':[{'name':t['name'],'points':t['points'],'probability':t['probability'],'players':[{'slot':p['slot'],'name':p['name'],'points':p['points'],'replacement':p['replacement']} for p in t['players']]} for t in m['teams']]} for m in matchups]
 public_standings = [{k:v for k,v in t.items() if k not in ('pa','expected_wins','id')} for t in table]
-out={'as_of':D['as_of'],'completed_week':9,'next_week':10,'simulations':N,'seed':SEED,'standings':public_standings,'matchups':public_matchups}
+out={'as_of':D['as_of'],'completed_week':9,'next_week':10,'simulations':N,'seed':SEED,'standings':public_standings,'matchups':public_matchups,'replacement_levels':{p:v['points'] for p,v in D['replacements']['10'].items()}}
 (ROOT/'data/dashboard.json').write_text(json.dumps(out,indent=2))
 for t in table: print(t['name'],f"W10 {t['projected']:.1f} | playoffs {t['playoffs']:.1%} | bye {t['bye']:.1%} | champion {t['champion']:.1%}")
 for m in matchups:
-    for t in m['teams']: print(t['name'],f"{t['probability']:.1%}", 'open slots:',sum(p['id'] is None for p in t['players']))
+    for t in m['teams']: print(t['name'],f"{t['probability']:.1%}", 'replacements:',[(p['slot'],p['name'],p['points']) for p in t['players'] if p['replacement']])

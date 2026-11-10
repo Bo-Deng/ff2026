@@ -36,10 +36,10 @@ Attribution: Sleeper league data and projections; nflverse/nflfastR play-by-play
 
 The homepage shows standings after Week 9, optimized Week 10 lineups and win odds, and playoff/bye/championship probabilities from 100,000 simulated seasons. Assumptions and snapshot time are visible on the page.
 
-- The raw forecast input stays outside this public repository. It contains rosters, weekly projections, schedule and uncertainty parameters.
+- The raw forecast input stays outside this public repository. It contains rosters, weekly projections, schedule, uncertainty parameters and weekly replacement levels under `replacements`.
 - `scripts/simulate_season.py --input /path/to/private-forecast-input.json` optimizes each team's lineup and regenerates the display-only `data/dashboard.json`. Running it locally requires NumPy and SciPy. It does not fetch data.
 - `scripts/dashboard_view.py` renders the dashboard; the Pages build only needs the Python standard library.
 
-Week 10 excludes current Out/IR players and reserve slots. Future weeks permit projected recovery and reserve activation. No waiver additions, new injuries or trades are modeled. Empty starting slots contribute zero. The six-team fixed bracket starts Week 15, with two byes and the championship in Week 17.
+Week 10 excludes current Out/IR players and reserve slots. Future weeks permit projected recovery and reserve activation. No actual waiver transactions, competitive claims, new injuries or trades are modeled. Unavoidable empty slots use generic replacement forecasts: the median of the top five unrostered projected players at the position for each week. FLEX uses the best RB/WR/TE baseline. These fill only vacancies and include position-level uncertainty. The six-team fixed bracket starts Week 15, with two byes and the championship in Week 17.
 
 Updating the site does not automatically refresh source projections. Refresh frozen inputs before rerunning the season model. Scores are experimental model draws, not Sleeper's official odds.
