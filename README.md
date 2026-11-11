@@ -47,3 +47,11 @@ Updating the site does not automatically refresh source projections. Refresh fro
 ## Game of the Week
 
 `data/gotw.json` holds the commissioner’s official Weeks 2–13 schedule and completed scores. The dashboard highlights the latest result, identifies the losing team as the weekly punishment recipient, lists future fixtures and marks the upcoming GOTW matchup card. Earlier results are available in the collapsed history. Update completed scores when advancing the weekly snapshot, then rebuild. `Alexis` is the display alias for `alexisssssssssssssss`.
+
+## Repeatable source refresh
+
+Start from a fresh `main` checkout. `python3 scripts/refresh_forecast.py --private-dir /tmp/ff2026-private` fetches current league settings/state, users, player availability, rosters, completed weekly stats, all matchup schedules, bracket and remaining weekly projections. Keep the private directory outside the repository. Use `--use-cache` only for source files fetched during the current run. The private input and raw payloads are never published.
+
+Run `python3 scripts/simulate_season.py --input /tmp/ff2026-private/forecast-input.json`, review the private `gotw-verified.json` against `data/gotw.json`, then build. The refresh stops on missing inputs or existing report score discrepancies; reconcile affected report prose and charts before publication. Newly completed weeks still require a complete effective-lineup and play-by-play report workflow before adding reports. Completed playoff rounds require explicit bracket reconciliation; the simulator stops rather than guessing.
+
+The retained positional uncertainty constants are in `data/model-uncertainty.json`; a full-rank reconstruction from previous public forecasts reproduced all matchup variances within 1e-8 points squared. Defense supplements use five NFL-average pseudo-games. A rolling Weeks 2–8 check (210 team-games) gave missing-counter aggregate RMSE 1.500 versus 1.621 without shrinkage. This validates the supplement only and is not a calibration claim for overall win odds.
