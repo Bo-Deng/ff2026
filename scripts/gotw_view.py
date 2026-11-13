@@ -18,7 +18,7 @@ def report_note(data, week):
         return ''
     return f'<aside class="gotw-report-note"><span class="gotw-badge">WEEK {week} · GAME OF THE WEEK</span><p><strong>{E(winner["name"])} wins {winner["points"]:.2f}–{loser["points"]:.2f}.</strong> Weekly punishment: <strong>{E(loser["name"])}</strong>.</p></aside>'
 
-def render(data, completed_week, next_week):
+def render(data, completed_week, next_week, in_progress=False):
     completed = [g for g in data['schedule'] if g['week']<=completed_week and all('points' in t for t in g['teams'])]
     latest = max(completed, key=lambda g:g['week']) if completed else None
     result = ''
@@ -34,7 +34,7 @@ def render(data, completed_week, next_week):
             continue
         a,b=g['teams']
         is_next = g['week']==next_week
-        label = '<span class="next-tag">UP NEXT</span>' if is_next else ''
+        label = f'<span class="next-tag">{"IN PROGRESS" if in_progress else "UP NEXT"}</span>' if is_next else ''
         cls = ' class="gotw-up-next"' if is_next else ''
         upcoming += f'<li{cls}><div><span class="schedule-week">WEEK {g["week"]}</span>{label}</div><strong>{E(a["name"])} <span>vs.</span> {E(b["name"])}</strong></li>'
     history_rows = ''

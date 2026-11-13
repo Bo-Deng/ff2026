@@ -26,7 +26,7 @@ def main():
     def get(key, endpoint):
         path = private / f'{key}.json'
         if not args.use_cache or not path.exists():
-            with urllib.request.urlopen(BASE+endpoint, timeout=60) as response:
+            with urllib.request.urlopen(endpoint if endpoint.startswith('https://') else BASE+endpoint, timeout=60) as response:
                 data = json.load(response)
             path.write_text(json.dumps(data))
         times[key] = datetime.datetime.fromtimestamp(path.stat().st_mtime, datetime.timezone.utc).isoformat()
@@ -42,17 +42,45 @@ def main():
     players = get('players','/v1/players/nfl')
     bracket = get('bracket',f'/v1/league/{LEAGUE}/winners_bracket')
     tasks = [(f'proj-{w}',f'/projections/nfl/2026/{w}?season_type=regular') for w in range(first,18)]
-    tasks += [(f'stats-{w}',f'/stats/nfl/2026/{w}?season_type=regular') for w in range(1,completed+1)]
+    tasks += [(f'stats-{w}',f'/stats/nfl/2026/{w}?season_type=regular') for w in range(1,first+1)]
     tasks += [(f'match-{w}',f'/v1/league/{LEAGUE}/matchups/{w}') for w in range(1,18)]
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
         payload = dict(pool.map(lambda task:(task[0],get(*task)), tasks))
-    assert all(payload.values()), 'Empty source payload'
+    assert all(v for k,v in payload.items() if k != f'stats-{first}'), 'Empty source payload'
     assert all(r['settings']['wins']+r['settings']['losses']+r['settings']['ties']==completed for r in roster)
     aliases = json.loads((ROOT/'data/gotw.json').read_text())['aliases']
     teams=[]
     for r in roster:
         s=r['settings']; name=users[r['owner_id']]
         teams.append(dict(id=r['roster_id'],name=aliases.get(name,name),players=sorted(set((r['players'] or [])+(r['reserve'] or []))),reserve=(r['reserve'] or [])+(r.get('taxi') or []),wins=s['wins'],losses=s['losses'],ties=s['ties'],pf=s['fpts']+s['fpts_decimal']/100,pa=s['fpts_against']+s['fpts_against_decimal']/100))
+    # Confirm game completion independently; never infer finality from a nonzero score.
+    dates = sorted({row['date'][:10].replace('-', '') for row in payload[f'proj-{first}'] if row.get('date') and row['stats'].get('gp',0)>0})
+    assert dates
+    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
+        daily_boards = list(pool.map(lambda date: get('scoreboard-'+date, 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates='+date), dates))
+    scoreboard = {'events':[event for board in daily_boards for event in board['events']]}
+    expected_teams={row['team'] for row in payload[f'proj-{first}'] if row['stats'].get('gp',0)>0 and row.get('team')}
+    scheduled_teams=set()
+    finished = set()
+    aliases_nfl = {'WSH':'WAS','LA':'LAR'}
+    for event in scoreboard['events']:
+        status = event['status']['type']
+        assert status['state'] != 'in', 'An NFL game is still live; preserve previous forecast until final'
+        for competitor in event['competitions'][0]['competitors']:
+            abbr=competitor['team']['abbreviation']
+            scheduled_teams.add(aliases_nfl.get(abbr,abbr))
+        if status['completed']:
+            for competitor in event['competitions'][0]['competitors']:
+                abbr = competitor['team']['abbreviation']
+                finished.add(aliases_nfl.get(abbr,abbr))
+    assert expected_teams <= scheduled_teams, 'Incomplete NFL schedule status coverage'
+    current = {row['roster_id']:row for row in payload[f'match-{first}']}
+    slots = [p for p in league['roster_positions'] if p not in ('BN','IR')]
+    for team in teams:
+        row=current[team['id']]
+        team['locked']={str(i):{'id':sid,'points':row['starters_points'][i]} for i,sid in enumerate(row['starters']) if players.get(sid,{}).get('team') in finished}
+        assert abs(sum(x['points'] for x in team['locked'].values())-row['points'])<.011, 'Actual points do not reconcile with completed-game starters'
+    unavailable = [sid for sid,p in players.items() if p.get('team') in finished]
     owned={sid for t in teams for sid in t['players']}
     metadata={sid:dict(name=p.get('full_name') or sid,positions=p.get('fantasy_positions') or [p.get('position')],injury=p.get('injury_status')) for sid,p in players.items()}
     # Five pseudo-games of NFL average stabilize short team histories. This
@@ -84,7 +112,7 @@ def main():
         for sid,value in values.items():
             if sid in owned or sid not in metadata or value<=0:continue
             p=metadata[sid]
-            if w==first and p['injury'] in ('Out','IR','PUP','Suspended'):continue
+            if w==first and (sid in unavailable or p['injury'] in ('Out','IR','PUP','Suspended')):continue
             for pos in set(p['positions']) & set(POSITIONS):pool[pos].append(value)
         assert all(len(v)>=5 for v in pool.values()), f'Insufficient Week {w} free agents'
         replacements[str(w)]={p:{'points':statistics.median(sorted(v,reverse=True)[:5])} for p,v in pool.items()}
@@ -94,7 +122,7 @@ def main():
         for r in payload[f'match-{w}']:pairs.setdefault(r['matchup_id'],[]).append(r['roster_id'])
         assert len(pairs)==4 and all(len(v)==2 for v in pairs.values())
         schedule[str(w)]=[sorted(v) for k,v in sorted(pairs.items())]
-    forecast=dict(as_of=min(times.values()),completed_week=completed,teams=teams,players=metadata,projections=projections,replacements=replacements,schedule=schedule,slots=[p for p in league['roster_positions'] if p not in ('BN','IR')],settings=league['settings'],uncertainty=json.loads((ROOT/'data/model-uncertainty.json').read_text()),final_scores={})
+    forecast=dict(as_of=min(times.values()),completed_week=completed,teams=teams,players=metadata,projections=projections,replacements=replacements,schedule=schedule,slots=[p for p in league['roster_positions'] if p not in ('BN','IR')],in_progress=bool(finished),unavailable=unavailable,settings=league['settings'],uncertainty=json.loads((ROOT/'data/model-uncertainty.json').read_text()),final_scores={})
     (private/'forecast-input.json').write_text(json.dumps(forecast))
     (private/'source-times.json').write_text(json.dumps(times,indent=2))
     # Reconcile only completed official GOTW scores; never promote live scores.
