@@ -27,6 +27,9 @@ def lineup(team, week):
     replacements = D['replacements'][str(week)]
     def replacement(slot):
         eligible = ('RB','WR','TE') if slot == 'FLEX' else (slot,)
+        eligible = [p for p in eligible if replacements[p]['points'] is not None]
+        if not eligible:
+            return None, None
         pos = max(eligible, key=lambda p: replacements[p]['points'])
         return pos, replacements[pos]['points']
     # A future recovery/activation is allowed when a weekly forecast exists.
@@ -58,14 +61,16 @@ def lineup(team, week):
             if sid is None:
                 # First maximize filled roster slots, then total projection
                 # including replacement points for unavoidable vacancies.
-                costs[i,j] = 10_000 - replacement(slot)[1]
+                baseline = replacement(slot)[1]
+                if baseline is not None:
+                    costs[i,j] = 10_000 - baseline
             elif allowed.intersection(D['players'][sid]['positions']):
                 costs[i,j] = -D['projections'][str(week)][sid]
     rows, cols = linear_sum_assignment(costs)
     chosen = []
     for i,j in zip(rows,cols):
         sid = candidates[j]
-        assert costs[i,j] < 1e8, 'No legal assignment'
+        assert costs[i,j] < 1e8, 'No legal assignment with verified replacement levels; preserve previous forecast'
         p = D['players'].get(sid, {})
         if sid:
             allowed = {'RB','WR','TE'} if slots[i] == 'FLEX' else {slots[i]}

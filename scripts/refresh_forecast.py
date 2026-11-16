@@ -114,8 +114,11 @@ def main():
             p=metadata[sid]
             if w==first and (sid in unavailable or p['injury'] in ('Out','IR','PUP','Suspended')):continue
             for pos in set(p['positions']) & set(POSITIONS):pool[pos].append(value)
-        assert all(len(v)>=5 for v in pool.values()), f'Insufficient Week {w} free agents'
-        replacements[str(w)]={p:{'points':statistics.median(sorted(v,reverse=True)[:5])} for p,v in pool.items()}
+        assert (w == first and finished) or all(len(v)>=5 for v in pool.values()), f'Insufficient Week {w} free agents'
+        # Late in a week, fewer than five eligible free agents can remain.
+        # Do not invent a baseline: unavailable levels prohibit replacement
+        # assignments, but must not block fully rostered/earned lineups.
+        replacements[str(w)]={p:{'points':statistics.median(sorted(v,reverse=True)[:5]) if len(v)>=5 else None} for p,v in pool.items()}
     schedule={}
     for w in range(first,15):
         pairs={}

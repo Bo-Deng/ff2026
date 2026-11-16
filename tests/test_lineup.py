@@ -51,4 +51,23 @@ class LineupContract(unittest.TestCase):
         self.assertEqual(sum(p['replacement'] for p in result['players']),2)
         self.assertTrue(all(p['variance']>0 for p in result['players']))
 
+    def test_unavailable_replacements_do_not_block_rostered_lineups(self):
+        for v in self.data['replacements']['10'].values():v['points']=None
+        result=self.env['lineup'](self.team,10)
+        self.assertEqual(result['points'],17)
+        self.assertFalse(any(p['replacement'] for p in result['players']))
+
+    def test_unavailable_replacements_block_unfillable_slots(self):
+        self.data['replacements']['10']['QB']['points']=None
+        self.team['players'].remove('qb')
+        with self.assertRaisesRegex(AssertionError,'verified replacement levels'):
+            self.env['lineup'](self.team,10)
+
+    def test_flex_uses_best_available_verified_position(self):
+        self.team['players']=['qb'];self.team['locked']={}
+        self.data['replacements']['10']['WR']['points']=None
+        self.data['replacements']['10']['TE']['points']=8
+        result=self.env['lineup'](self.team,10)
+        self.assertEqual(result['players'][2]['name'],'Replacement TE')
+
 if __name__=='__main__':unittest.main()
