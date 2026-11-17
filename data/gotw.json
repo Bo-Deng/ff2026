@@ -112,10 +112,12 @@
       "week": 10,
       "teams": [
         {
-          "name": "riripanini"
+          "name": "riripanini",
+          "points": 180.43
         },
         {
-          "name": "paulapun"
+          "name": "paulapun",
+          "points": 107.87
         }
       ]
     },

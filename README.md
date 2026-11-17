@@ -1,6 +1,6 @@
 # roblox & friends — Fantasy league newsletter
 
-Static public archive of weekly statistical reports. Includes Week 9 of the 2026 season, annotated matchup graphs, and a shared methodology page. Week 9 includes the confirmed Zay Flowers-for-Garrett Wilson autosub.
+Static public archive of weekly statistical reports. Includes Weeks 9–10 of the 2026 season, annotated matchup graphs, and a shared methodology page. Week 9 includes the confirmed Zay Flowers-for-Garrett Wilson autosub.
 
 ## Publish with GitHub Pages
 
@@ -34,13 +34,13 @@ Attribution: Sleeper league data and projections; nflverse/nflfastR play-by-play
 
 ## League dashboard
 
-The homepage shows standings after Week 9, optimized Week 10 lineups and win odds, and playoff/bye/championship probabilities from 100,000 simulated seasons. Assumptions and snapshot time are visible on the page.
+The homepage shows standings after Week 10, optimized Week 11 lineups and win odds, and playoff/bye/championship probabilities from 100,000 simulated seasons. Assumptions and snapshot time are visible on the page.
 
 - The raw forecast input stays outside this public repository. It contains rosters, weekly projections, schedule, uncertainty parameters and weekly replacement levels under `replacements`.
 - `scripts/simulate_season.py --input /path/to/private-forecast-input.json` optimizes each team's lineup and regenerates the display-only `data/dashboard.json`. Running it locally requires NumPy and SciPy. It does not fetch data.
 - `scripts/dashboard_view.py` renders the dashboard; the Pages build only needs the Python standard library.
 
-Week 10 excludes current Out/IR players and reserve slots. Future weeks permit projected recovery and reserve activation. No actual waiver transactions, competitive claims, new injuries or trades are modeled. Unavoidable empty slots use generic replacement forecasts: the median of the top five unrostered projected players at the position for each week. FLEX uses the best RB/WR/TE baseline. These fill only vacancies and include position-level uncertainty. The six-team fixed bracket starts Week 15, with two byes and the championship in Week 17.
+Week 11 excludes current Out/IR players and reserve slots. Future weeks permit projected recovery and reserve activation. No actual waiver transactions, competitive claims, new injuries or trades are modeled. Unavoidable empty slots use generic replacement forecasts: the median of the top five unrostered projected players at the position for each week. FLEX uses the best RB/WR/TE baseline. These fill only vacancies and include position-level uncertainty. The six-team fixed bracket starts Week 15, with two byes and the championship in Week 17.
 
 Updating the site does not automatically refresh source projections. Refresh frozen inputs before rerunning the season model. Scores are experimental model draws, not Sleeper's official odds.
 
@@ -63,3 +63,7 @@ The source refresh also checks ESPN game status for each NFL date in the current
 Run `python3 -m unittest discover -s tests` with NumPy/SciPy available to check earned-point locks, missing projections, return eligibility, exclusions and replacement vacancies. Fantasy standings, reports and GOTW punishment advance only after the fantasy week is complete.
 
 Late-week replacement pools still require five eligible free agents at a position. A smaller pool is displayed as unavailable, never as a zero or a smaller-sample median. Fully rostered or earned slots can still be forecast; a vacancy without a verified eligible replacement level stops publication. FLEX can use any verified RB/WR/TE level.
+
+## Rebuilding final reports
+
+`scripts/report_week.py --private-dir /tmp/current-run --week 10` builds the report from fresh private Sleeper matchup/stat/projection snapshots, preceding weekly results, the DynastyProcess `db_playerids.csv` crosswalk (saved as `playerids.csv`), and nflverse `play_by_play_2026.parquet` (saved as `pbp-2026.parquet`). Install pandas, pyarrow, matplotlib, NumPy and SciPy locally. Raw files stay private. The workflow requires final NFL games, unique effective starters, and official point reconciliation. Offensive and kicking scoring is mapped to plays; defense and unlocalized scoring settle at game end and are excluded from pivotal-play labels. This limitation is visible in each generated report and chart. Existing Week 9 remains unchanged.
