@@ -1,0 +1,79 @@
+{
+  "week": 11,
+  "season": 2026,
+  "as_of": "2026-11-24T06:00:30.765362+00:00",
+  "matchups": [
+    {
+      "matchup_id": 1,
+      "teams": [
+        {
+          "roster_id": 7,
+          "name": "Alexis",
+          "points": 154.61
+        },
+        {
+          "roster_id": 8,
+          "name": "JuliusKoko",
+          "points": 131.96
+        }
+      ],
+      "winner": "Alexis",
+      "winner_id": 7,
+      "margin": 22.65
+    },
+    {
+      "matchup_id": 2,
+      "teams": [
+        {
+          "roster_id": 1,
+          "name": "btbchip",
+          "points": 167.45
+        },
+        {
+          "roster_id": 3,
+          "name": "andwxu",
+          "points": 150.66
+        }
+      ],
+      "winner": "btbchip",
+      "winner_id": 1,
+      "margin": 16.79
+    },
+    {
+      "matchup_id": 3,
+      "teams": [
+        {
+          "roster_id": 5,
+          "name": "paulapun",
+          "points": 141.48
+        },
+        {
+          "roster_id": 6,
+          "name": "jasmiine",
+          "points": 167.65
+        }
+      ],
+      "winner": "jasmiine",
+      "winner_id": 6,
+      "margin": 26.17
+    },
+    {
+      "matchup_id": 4,
+      "teams": [
+        {
+          "roster_id": 2,
+          "name": "RoyalCobalt",
+          "points": 175.95
+        },
+        {
+          "roster_id": 4,
+          "name": "riripanini",
+          "points": 145.79
+        }
+      ],
+      "winner": "RoyalCobalt",
+      "winner_id": 2,
+      "margin": 30.16
+    }
+  ]
+}

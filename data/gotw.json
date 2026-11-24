@@ -125,10 +125,12 @@
       "week": 11,
       "teams": [
         {
-          "name": "btbchip"
+          "name": "btbchip",
+          "points": 167.45
         },
         {
-          "name": "andwxu"
+          "name": "andwxu",
+          "points": 150.66
         }
       ]
     },
