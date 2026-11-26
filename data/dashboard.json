@@ -1,6 +1,6 @@
 {
-  "in_progress": false,
-  "as_of": "2026-11-25T06:00:39.261801+00:00",
+  "in_progress": true,
+  "as_of": "2026-11-26T05:58:32.376742+00:00",
   "completed_week": 11,
   "next_week": 12,
   "simulations": 100000,
@@ -13,10 +13,10 @@
       "ties": 0,
       "pf": 2040.12,
       "rank": 1,
-      "projected": 192.42319877300613,
+      "projected": 191.58533210633948,
       "playoffs": 1.0,
       "bye": 1.0,
-      "champion": 0.42296
+      "champion": 0.44331
     },
     {
       "name": "jasmiine",
@@ -25,10 +25,10 @@
       "ties": 0,
       "pf": 1914.79,
       "rank": 2,
-      "projected": 171.2297738241309,
+      "projected": 180.68597382413088,
       "playoffs": 1.0,
-      "bye": 0.9203,
-      "champion": 0.19411
+      "bye": 0.93702,
+      "champion": 0.19873
     },
     {
       "name": "Alexis",
@@ -37,10 +37,10 @@
       "ties": 0,
       "pf": 1824.01,
       "rank": 3,
-      "projected": 158.84533210633947,
+      "projected": 162.66233210633948,
       "playoffs": 1.0,
-      "bye": 0.04472,
-      "champion": 0.06165
+      "bye": 0.03923,
+      "champion": 0.06096
     },
     {
       "name": "riripanini",
@@ -49,10 +49,10 @@
       "ties": 0,
       "pf": 1797.02,
       "rank": 4,
-      "projected": 161.1288654396728,
+      "projected": 163.55553210633948,
       "playoffs": 1.0,
-      "bye": 0.03498,
-      "champion": 0.13645
+      "bye": 0.02375,
+      "champion": 0.11619
     },
     {
       "name": "JuliusKoko",
@@ -61,10 +61,10 @@
       "ties": 0,
       "pf": 1719.39,
       "rank": 5,
-      "projected": 177.6880654396728,
-      "playoffs": 0.98647,
+      "projected": 174.1570654396728,
+      "playoffs": 0.98414,
       "bye": 0.0,
-      "champion": 0.11046
+      "champion": 0.10316
     },
     {
       "name": "RoyalCobalt",
@@ -73,10 +73,10 @@
       "ties": 0,
       "pf": 1651.52,
       "rank": 6,
-      "projected": 153.78573210633948,
-      "playoffs": 0.63644,
+      "projected": 161.98253210633948,
+      "playoffs": 0.62696,
       "bye": 0.0,
-      "champion": 0.04888
+      "champion": 0.04781
     },
     {
       "name": "andwxu",
@@ -85,10 +85,10 @@
       "ties": 0,
       "pf": 1624.28,
       "rank": 7,
-      "projected": 158.53693210633946,
-      "playoffs": 0.29327,
+      "projected": 163.80339877300614,
+      "playoffs": 0.32327,
       "bye": 0.0,
-      "champion": 0.02401
+      "champion": 0.02873
     },
     {
       "name": "paulapun",
@@ -97,10 +97,10 @@
       "ties": 0,
       "pf": 1548.35,
       "rank": 8,
-      "projected": 148.99484049079754,
-      "playoffs": 0.08382,
+      "projected": 143.624,
+      "playoffs": 0.06563,
       "bye": 0.0,
-      "champion": 0.00148
+      "champion": 0.00111
     }
   ],
   "matchups": [
@@ -108,34 +108,27 @@
       "teams": [
         {
           "name": "andwxu",
-          "points": 158.53693210633946,
-          "probability": 0.4967565830447689,
+          "points": 163.80339877300614,
+          "probability": 0.5117586241883324,
           "players": [
             {
               "slot": "QB",
               "name": "C.J. Stroud",
-              "points": 21.7382,
+              "points": 21.462,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "RB",
               "name": "Jonathan Taylor",
-              "points": 15.427999999999999,
+              "points": 15.532,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "RB",
-              "name": "Jonah Coleman",
-              "points": 16.898,
-              "replacement": false,
-              "actual": false
-            },
-            {
-              "slot": "WR",
-              "name": "Chris Olave",
-              "points": 15.911000000000001,
+              "name": "Tony Pollard",
+              "points": 13.865,
               "replacement": false,
               "actual": false
             },
@@ -149,49 +142,56 @@
             {
               "slot": "WR",
               "name": "Tetairoa McMillan",
-              "points": 14.054,
+              "points": 14.027000000000001,
+              "replacement": false,
+              "actual": false
+            },
+            {
+              "slot": "WR",
+              "name": "Chris Olave",
+              "points": 15.738000000000001,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "TE",
-              "name": "George Kittle",
-              "points": 12.103000000000002,
+              "name": "Harold Fannin Jr.",
+              "points": 10.923,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "FLEX",
-              "name": "Harold Fannin Jr.",
-              "points": 11.583,
+              "name": "Jonah Coleman",
+              "points": 17.469,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "FLEX",
               "name": "Quinshon Judkins",
-              "points": 12.919,
+              "points": 13.218,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "FLEX",
-              "name": "Tony Pollard",
-              "points": 14.133000000000001,
+              "name": "George Kittle",
+              "points": 12.018,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "K",
-              "name": "Spencer Shrader",
-              "points": 7.0,
+              "name": "Jason Sanders",
+              "points": 6.45,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "DEF",
-              "name": "DET",
-              "points": 2.298732106339468,
+              "name": "TB",
+              "points": 8.630398773006135,
               "replacement": false,
               "actual": false
             }
@@ -199,8 +199,8 @@
         },
         {
           "name": "Alexis",
-          "points": 158.84533210633947,
-          "probability": 0.5032434169552311,
+          "points": 162.66233210633948,
+          "probability": 0.4882413758116676,
           "players": [
             {
               "slot": "QB",
@@ -211,64 +211,64 @@
             },
             {
               "slot": "RB",
-              "name": "Javonte Williams",
-              "points": 18.159000000000002,
+              "name": "Saquon Barkley",
+              "points": 15.476,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "RB",
-              "name": "Saquon Barkley",
-              "points": 15.419,
+              "name": "Javonte Williams",
+              "points": 19.017,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "WR",
-              "name": "Antonio Williams",
-              "points": 9.850999999999999,
+              "name": "Tee Higgins",
+              "points": 16.543,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "WR",
               "name": "Carnell Tate",
-              "points": 12.066,
+              "points": 12.016,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "WR",
               "name": "DJ Moore",
-              "points": 10.789,
+              "points": 10.022,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "TE",
-              "name": "Chig Okonkwo",
-              "points": 10.258,
+              "name": "Brock Bowers",
+              "points": 14.522,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "FLEX",
               "name": "D'Andre Swift",
-              "points": 14.948,
+              "points": 14.815000000000001,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "FLEX",
               "name": "Ollie Gordon II",
-              "points": 13.416,
+              "points": 13.206000000000001,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "FLEX",
-              "name": "Tee Higgins",
-              "points": 17.102,
+              "name": "Chig Okonkwo",
+              "points": 10.258,
               "replacement": false,
               "actual": false
             },
@@ -282,7 +282,7 @@
             {
               "slot": "DEF",
               "name": "PIT",
-              "points": 7.563732106339469,
+              "points": 7.513732106339469,
               "replacement": false,
               "actual": false
             }
@@ -294,8 +294,8 @@
       "teams": [
         {
           "name": "paulapun",
-          "points": 148.99484049079754,
-          "probability": 0.23050367169400326,
+          "points": 143.624,
+          "probability": 0.20162522434352192,
           "players": [
             {
               "slot": "QB",
@@ -306,169 +306,169 @@
             },
             {
               "slot": "RB",
-              "name": "David Montgomery",
-              "points": 10.738000000000001,
-              "replacement": false,
-              "actual": false
-            },
-            {
-              "slot": "RB",
-              "name": "Omarion Hampton",
-              "points": 10.986,
-              "replacement": false,
-              "actual": false
-            },
-            {
-              "slot": "WR",
-              "name": "DeVonta Smith",
-              "points": 13.864,
-              "replacement": false,
-              "actual": false
-            },
-            {
-              "slot": "WR",
-              "name": "Matthew Golden",
-              "points": 15.403,
-              "replacement": false,
-              "actual": false
-            },
-            {
-              "slot": "WR",
-              "name": "Jameson Williams",
-              "points": 13.572000000000001,
-              "replacement": false,
-              "actual": false
-            },
-            {
-              "slot": "TE",
-              "name": "Colston Loveland",
-              "points": 12.313,
-              "replacement": false,
-              "actual": false
-            },
-            {
-              "slot": "FLEX",
-              "name": "Stefon Diggs",
-              "points": 13.176,
-              "replacement": false,
-              "actual": false
-            },
-            {
-              "slot": "FLEX",
               "name": "Bijan Robinson",
               "points": 18.034,
               "replacement": false,
               "actual": false
             },
             {
+              "slot": "RB",
+              "name": "Omarion Hampton",
+              "points": 10.518,
+              "replacement": false,
+              "actual": false
+            },
+            {
+              "slot": "WR",
+              "name": "Stefon Diggs",
+              "points": 13.176,
+              "replacement": false,
+              "actual": false
+            },
+            {
+              "slot": "WR",
+              "name": "Matthew Golden",
+              "points": 4.9,
+              "replacement": false,
+              "actual": true
+            },
+            {
+              "slot": "WR",
+              "name": "DeVonta Smith",
+              "points": 13.96,
+              "replacement": false,
+              "actual": false
+            },
+            {
+              "slot": "TE",
+              "name": "Colston Loveland",
+              "points": 12.27,
+              "replacement": false,
+              "actual": false
+            },
+            {
               "slot": "FLEX",
-              "name": "Tre Tucker",
-              "points": 8.462,
+              "name": "Konata Mumpfield",
+              "points": 10.9,
+              "replacement": false,
+              "actual": true
+            },
+            {
+              "slot": "FLEX",
+              "name": "David Montgomery",
+              "points": 10.693000000000001,
+              "replacement": false,
+              "actual": false
+            },
+            {
+              "slot": "FLEX",
+              "name": "Jameson Williams",
+              "points": 13.638000000000002,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "K",
               "name": "Ka'imi Fairbairn",
-              "points": 7.47,
+              "points": 7.42,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "DEF",
               "name": "LAR",
-              "points": 7.311840490797546,
+              "points": 10.45,
               "replacement": false,
-              "actual": false
+              "actual": true
             }
           ]
         },
         {
           "name": "JuliusKoko",
-          "points": 177.6880654396728,
-          "probability": 0.7694963283059968,
+          "points": 174.1570654396728,
+          "probability": 0.7983747756564781,
           "players": [
             {
               "slot": "QB",
               "name": "Josh Allen",
-              "points": 20.212,
+              "points": 20.066000000000003,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "RB",
               "name": "Bhayshul Tuten",
-              "points": 16.908,
+              "points": 15.180000000000001,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "RB",
               "name": "Ashton Jeanty",
-              "points": 13.427,
+              "points": 13.022,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "WR",
-              "name": "Jalen Coker",
-              "points": 12.360000000000001,
+              "name": "Jaxon Smith-Njigba",
+              "points": 24.066000000000003,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "WR",
               "name": "Malik Nabers",
-              "points": 16.165,
+              "points": 16.187,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "WR",
               "name": "Rome Odunze",
-              "points": 12.739,
+              "points": 12.758,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "TE",
               "name": "Isaiah Likely",
-              "points": 14.515,
-              "replacement": false,
-              "actual": false
-            },
-            {
-              "slot": "FLEX",
-              "name": "Jaxon Smith-Njigba",
-              "points": 24.191,
+              "points": 14.523000000000001,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "FLEX",
               "name": "Cam Skattebo",
-              "points": 19.697,
+              "points": 19.694,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "FLEX",
               "name": "Sam LaPorta",
-              "points": 12.802000000000001,
+              "points": 12.806000000000001,
+              "replacement": false,
+              "actual": false
+            },
+            {
+              "slot": "FLEX",
+              "name": "Jalen Coker",
+              "points": 11.133000000000001,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "K",
               "name": "Cameron Dicker",
-              "points": 5.57,
+              "points": 5.48,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "DEF",
               "name": "DEN",
-              "points": 9.102065439672801,
+              "points": 9.242065439672801,
               "replacement": false,
               "actual": false
             }
@@ -480,48 +480,48 @@
       "teams": [
         {
           "name": "btbchip",
-          "points": 192.42319877300613,
-          "probability": 0.7815149338256345,
+          "points": 191.58533210633948,
+          "probability": 0.7612960928546946,
           "players": [
             {
               "slot": "QB",
               "name": "Joe Burrow",
-              "points": 24.2118,
+              "points": 23.5866,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "RB",
               "name": "Jahmyr Gibbs",
-              "points": 25.945,
+              "points": 26.025000000000002,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "RB",
               "name": "Chuba Hubbard",
-              "points": 15.610000000000001,
+              "points": 15.676,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "WR",
               "name": "Luther Burden III",
-              "points": 16.720000000000002,
+              "points": 16.176000000000002,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "WR",
               "name": "Christian Watson",
-              "points": 15.868,
+              "points": 16.5,
               "replacement": false,
-              "actual": false
+              "actual": true
             },
             {
               "slot": "WR",
-              "name": "Nico Collins",
-              "points": 17.562,
+              "name": "Parker Washington",
+              "points": 16.889,
               "replacement": false,
               "actual": false
             },
@@ -534,36 +534,36 @@
             },
             {
               "slot": "FLEX",
-              "name": "Parker Washington",
-              "points": 16.585,
-              "replacement": false,
-              "actual": false
-            },
-            {
-              "slot": "FLEX",
-              "name": "Zay Flowers",
-              "points": 16.425,
+              "name": "Nico Collins",
+              "points": 17.513,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "FLEX",
               "name": "Garrett Wilson",
-              "points": 15.451,
+              "points": 15.665000000000001,
+              "replacement": false,
+              "actual": false
+            },
+            {
+              "slot": "FLEX",
+              "name": "Zay Flowers",
+              "points": 16.491,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "K",
               "name": "Evan McPherson",
-              "points": 7.05,
+              "points": 7.0,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "DEF",
-              "name": "JAX",
-              "points": 10.220398773006135,
+              "name": "CLE",
+              "points": 9.288732106339468,
               "replacement": false,
               "actual": false
             }
@@ -571,90 +571,90 @@
         },
         {
           "name": "riripanini",
-          "points": 161.1288654396728,
-          "probability": 0.21848506617436547,
+          "points": 163.55553210633948,
+          "probability": 0.23870390714530543,
           "players": [
             {
               "slot": "QB",
               "name": "Trevor Lawrence",
-              "points": 23.7068,
-              "replacement": false,
-              "actual": false
-            },
-            {
-              "slot": "RB",
-              "name": "Rhamondre Stevenson",
-              "points": 14.098,
+              "points": 23.387800000000002,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "RB",
               "name": "James Cook III",
-              "points": 17.025000000000002,
+              "points": 17.278000000000002,
+              "replacement": false,
+              "actual": false
+            },
+            {
+              "slot": "RB",
+              "name": "Rhamondre Stevenson",
+              "points": 14.637,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "WR",
-              "name": "Jaylen Waddle",
-              "points": 10.802,
-              "replacement": false,
-              "actual": false
-            },
-            {
-              "slot": "WR",
-              "name": "Mike Evans",
-              "points": 13.508,
+              "name": "Amon-Ra St. Brown",
+              "points": 20.978,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "WR",
               "name": "George Pickens",
-              "points": 14.659,
+              "points": 14.455,
+              "replacement": false,
+              "actual": false
+            },
+            {
+              "slot": "WR",
+              "name": "Jaylen Waddle",
+              "points": 10.038,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "TE",
               "name": "Dallas Goedert",
-              "points": 10.623,
-              "replacement": false,
-              "actual": false
-            },
-            {
-              "slot": "FLEX",
-              "name": "Amon-Ra St. Brown",
-              "points": 20.912,
-              "replacement": false,
-              "actual": false
-            },
-            {
-              "slot": "FLEX",
-              "name": "Jaylen Warren",
-              "points": 13.532,
+              "points": 10.639,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "FLEX",
               "name": "Tyler Warren",
-              "points": 10.241,
+              "points": 10.255,
+              "replacement": false,
+              "actual": false
+            },
+            {
+              "slot": "FLEX",
+              "name": "Mike Evans",
+              "points": 13.398000000000001,
+              "replacement": false,
+              "actual": false
+            },
+            {
+              "slot": "FLEX",
+              "name": "Jaylen Warren",
+              "points": 12.826,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "K",
               "name": "Brandon Aubrey",
-              "points": 7.0,
+              "points": 7.02,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "DEF",
-              "name": "BUF",
-              "points": 5.022065439672802,
+              "name": "NYG",
+              "points": 8.643732106339469,
               "replacement": false,
               "actual": false
             }
@@ -666,27 +666,27 @@
       "teams": [
         {
           "name": "RoyalCobalt",
-          "points": 153.78573210633948,
-          "probability": 0.32615386593530193,
+          "points": 161.98253210633948,
+          "probability": 0.30532884291334833,
           "players": [
             {
               "slot": "QB",
-              "name": "Brock Purdy",
-              "points": 16.364,
+              "name": "Geno Smith",
+              "points": 17.9738,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "RB",
               "name": "Christian McCaffrey",
-              "points": 18.472,
+              "points": 18.337,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "RB",
-              "name": "Aaron Jones Sr.",
-              "points": 11.217,
+              "name": "Emmett Johnson",
+              "points": 18.485,
               "replacement": false,
               "actual": false
             },
@@ -700,49 +700,49 @@
             {
               "slot": "WR",
               "name": "Rashee Rice",
-              "points": 12.318000000000001,
+              "points": 11.836,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "WR",
               "name": "Ladd McConkey",
-              "points": 11.198,
+              "points": 10.854,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "TE",
               "name": "Trey McBride",
-              "points": 15.773,
+              "points": 15.172,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "FLEX",
               "name": "Travis Etienne Jr.",
-              "points": 12.446000000000002,
+              "points": 12.376,
+              "replacement": false,
+              "actual": false
+            },
+            {
+              "slot": "FLEX",
+              "name": "Aaron Jones Sr.",
+              "points": 11.217,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "FLEX",
               "name": "Brenton Strange",
-              "points": 10.439,
-              "replacement": false,
-              "actual": false
-            },
-            {
-              "slot": "FLEX",
-              "name": "Tyler Allgeier",
-              "points": 10.405000000000001,
+              "points": 10.588000000000001,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "K",
               "name": "Matt Gay",
-              "points": 6.87,
+              "points": 6.86,
               "replacement": false,
               "actual": false
             },
@@ -757,90 +757,90 @@
         },
         {
           "name": "jasmiine",
-          "points": 171.2297738241309,
-          "probability": 0.6738461340646981,
+          "points": 180.68597382413088,
+          "probability": 0.6946711570866517,
           "players": [
             {
               "slot": "QB",
               "name": "Dak Prescott",
-              "points": 20.4086,
+              "points": 20.2468,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "RB",
-              "name": "Bucky Irving",
-              "points": 20.745,
+              "name": "Derrick Henry",
+              "points": 13.874,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "RB",
-              "name": "Kyren Williams",
-              "points": 15.142,
-              "replacement": false,
-              "actual": false
-            },
-            {
-              "slot": "WR",
-              "name": "KC Concepcion Jr.",
-              "points": 11.153,
+              "name": "Breece Hall",
+              "points": 12.334000000000001,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "WR",
               "name": "CeeDee Lamb",
-              "points": 19.968999999999998,
+              "points": 19.648,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "WR",
               "name": "Ja'Marr Chase",
-              "points": 19.974,
+              "points": 19.314999999999998,
+              "replacement": false,
+              "actual": false
+            },
+            {
+              "slot": "WR",
+              "name": "Omar Cooper Jr.",
+              "points": 10.893,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "TE",
               "name": "Tucker Kraft",
-              "points": 10.688,
+              "points": 3.4,
               "replacement": false,
-              "actual": false
+              "actual": true
             },
             {
               "slot": "FLEX",
-              "name": "Derrick Henry",
-              "points": 13.803,
+              "name": "Kyren Williams",
+              "points": 16.5,
               "replacement": false,
-              "actual": false
-            },
-            {
-              "slot": "FLEX",
-              "name": "Breece Hall",
-              "points": 12.328000000000001,
-              "replacement": false,
-              "actual": false
+              "actual": true
             },
             {
               "slot": "FLEX",
               "name": "Blake Corum",
-              "points": 11.594,
+              "points": 28.5,
+              "replacement": false,
+              "actual": true
+            },
+            {
+              "slot": "FLEX",
+              "name": "Bucky Irving",
+              "points": 20.634999999999998,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "K",
               "name": "Cam Little",
-              "points": 6.96,
+              "points": 6.9799999999999995,
               "replacement": false,
               "actual": false
             },
             {
               "slot": "DEF",
               "name": "HOU",
-              "points": 8.465173824130881,
+              "points": 8.360173824130879,
               "replacement": false,
               "actual": false
             }
@@ -850,11 +850,11 @@
     }
   ],
   "replacement_levels": {
-    "QB": 16.6928,
-    "RB": 8.922,
-    "WR": 8.266,
-    "TE": 8.295,
-    "K": 6.9,
-    "DEF": 8.688732106339469
+    "QB": 15.446200000000001,
+    "RB": 8.335,
+    "WR": 8.16,
+    "TE": 8.277000000000001,
+    "K": 7.010000000000001,
+    "DEF": 8.676623849693252
   }
 }
